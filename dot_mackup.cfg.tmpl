@@ -1,0 +1,20 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+
+[storage]
+engine = icloud
+
+[applications_to_sync]
+
+
+[applications_to_ignore]
+git
+ssh
+zsh
+p10k
+vim
+mackup
+bash
+gnupg
+asdf
+
+{{ end -}}

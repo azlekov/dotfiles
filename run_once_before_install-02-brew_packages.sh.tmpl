@@ -1,0 +1,142 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+#####################
+# Brewfile contents #
+#####################
+
+# Taps
+tap 'adoptopenjdk/openjdk'
+tap 'armmbed/formulae'
+tap 'heroku/brew'
+tap 'homebrew/bundle'
+tap 'homebrew/cask'
+tap 'homebrew/cask-fonts'
+tap 'homebrew/cask-versions'
+tap 'homebrew/core'
+tap 'romkatv/powerlevel10k'
+
+# GNU utils
+brew 'coreutils' # Those that come with macOS are outdated
+brew 'findutils'
+
+# Bash ZSH
+brew 'bash' # Latest Bash version
+brew 'bash-completion@2'
+brew 'zsh'
+brew 'chezmoi'
+
+brew 'mackup'
+brew 'mas' # Mac App Store manager
+
+# Development
+brew 'ktlint'
+brew 'swiftformat'
+brew 'swiftlint'
+brew 'heroku/brew/heroku'
+brew 'cocoapods'
+brew 'httpie'
+brew 'cloc'
+
+# Development environment
+brew 'asdf'
+
+# Utilities
+brew 'apparency' # Quicklook plugin for better app info
+brew 'detox'
+brew 'diff-so-fancy'
+brew 'git'
+brew 'gnupg'
+brew 'highlight'
+brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
+brew 'pinentry-mac'
+brew 'scrcpy'
+brew 'speedtest-cli'
+brew 'tldr'
+brew 'trash'
+brew 'tree'
+brew 'vim'
+brew 'wget'
+brew 'wifi-password'
+brew 'grep' # Global Regural Expression Print
+brew 'zoxide' # Better cd in Terminal
+brew 'fzf' # For zoxide
+
+#####################
+# Casks             #
+#####################
+
+cask "1password"
+cask "adoptopenjdk11"
+cask "adoptopenjdk8"
+cask "agenda"
+cask "alfred"
+cask "android-sdk"
+cask "android-studio"
+cask "brave-browser"
+cask "coconutbattery"
+cask "docker"
+cask 'gpg-suite'
+cask "github"
+cask "google-chrome"
+cask 'imageoptim'
+cask "iina" # Open-Source Video Player
+cask "intellij-idea"
+cask "iterm2"
+cask "kap"
+cask "keybase"
+cask "keystore-explorer"
+cask "ledger-live"
+cask "microsoft-auto-update"
+cask "microsoft-edge"
+cask "microsoft-office"
+cask "microsoft-teams"
+cask "mongodb-compass"
+cask "obsidian"
+cask "parallels"
+cask "rectangle"
+cask "setapp" # A collection of apps
+cask "sketch"
+cask "slack"
+cask "sourcetree"
+cask "spotify"
+cask "surfshark"
+cask "swiftformat-for-xcode"
+cask "telegram"
+cask "the-unarchiver"
+cask "transmission"
+cask "visual-studio-code"
+
+# Quicklook
+cask 'qlmarkdown'
+cask 'quicklook-json'
+cask 'qlstephen'
+
+# Fonts
+cask 'font-lato'
+cask 'font-open-sans'
+cask 'font-roboto'
+cask 'font-source-code-pro-for-powerline'
+cask 'font-source-code-pro'
+cask 'font-source-sans-pro'
+cask 'font-source-serif-pro'
+cask 'font-meslo-for-powerline'
+cask 'font-meslo-lg-nerd-font'
+cask 'font-meslo-lg'
+cask "font-hack-nerd-font"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-ubuntu"
+
+# Mac App Store manager
+mas 'Keynote', id: 409183694
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas "Jira", id: 1475897096
+mas "Xcode", id: 497799835
+
+#########################
+# Brewfile contents end #
+#########################
+EOF
+{{ end -}}

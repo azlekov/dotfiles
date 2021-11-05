@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/sh
+
+# Create dev directories
+
+mkdir -p {{ .chezmoi.homeDir }}/Workspace
+mkdir -p {{ .chezmoi.homeDir }}/Workspace/dl
+mkdir -p {{ .chezmoi.homeDir }}/Workspace/dodi
+
+{{ end -}}
