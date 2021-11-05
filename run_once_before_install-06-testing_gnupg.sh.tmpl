@@ -1,0 +1,10 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+echo "Testing up your gpg..."
+echo "https://github.com/pstadler/keybase-gpg-github"
+
+killall gpg-agent && gpg-agent --daemon --pinentry-program /usr/local/bin/pinentry-mac
+echo "test" | gpg --clearsign
+
+{{ end -}}
