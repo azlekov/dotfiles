@@ -1,0 +1,13 @@
+# Load all commons
+if [ -f ~/.commonrc ]; then
+  source ~/.commonrc
+fi
+
+# Turn on advanced bash completion if the file exists
+if [ -f /usr/local/etc/bash_completion ]; then
+  source /usr/local/etc/bash_completion
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+. $(brew --prefix asdf)/asdf.sh

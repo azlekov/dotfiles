@@ -1,0 +1,136 @@
+[user]
+	name = Asen Lekov
+	email = asenlekoff@gmail.com
+	signingkey = 6C0C9DCD8A46C061
+
+[includeIf "gitdir:~/Workspace/dl/"]
+    path = ~/Workspace/dl/.gitconfig
+
+[alias]
+  tags = tag -l
+  branches = branch -a
+  remotes = remote -v
+  commits = shortlog -s -n
+
+  master = checkout master
+
+  a = add
+
+  c = commit
+  cm = commit -m
+
+  co = checkout
+  cob = checkout -b
+
+  undo = reset HEAD~1 --mixed
+  up = !git pull --rebase --prune $@ && git submodule update --init --recursive
+
+  d = difftool
+
+  s = status
+
+  unstage = reset HEAD
+  untrack = rm --cached
+
+  forget = !git ls-files --ignored --exclude-standard -z | xargs -0 git rm --cached
+
+  l = log -18 --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
+  ll = log --color=always --all --topo-order --pretty='format:%Cgreen%h%Creset %s%Cred%d%Creset %C(black bold)(by %an)%Creset'
+  gl = log -12 --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(black bold)(by %an)%Creset%C(yellow bold)%d%Creset%n'
+  gll = log --color=always --all --graph --topo-order --pretty='format:%Cgreen%h%Creset %s %C(black bold)(%cr by %an)%Creset%C(yellow bold)%d%Creset%n'
+
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\t=> \\2/' | sort
+  squash = !git rebase --interactive --autosquash HEAD~$@
+
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = vim
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[apply]
+	whitespace = nowarn
+
+[fetch]
+    prune = true
+
+[push]
+    default = current
+
+[branch]
+    autosetuprebase = always
+
+[log]
+  date = relative
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+    showbranch = auto
+	ui = true
+
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+
+[credential]
+    helper = osxkeychain
+
+[diff]
+    tool = vimdiff
+
+[github]
+	user = L3K0V
+
+[ghi]
+	token = !security find-internet-password -a L3K0V -s github.com -l 'ghi token' -w
+
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+    required = true
+
+[gpg]
+	program = /usr/local/bin/gpg
+
+[commit]
+	gpgsign = true
+
+[pull]
+	rebase = true
+
+[merge]
+	tool = vscode
+
+[mergetool "vscode"]
+	cmd = "code --wait "
+
+[init]
+	defaultBranch = main
+
+[interactive]
+	diffFilter = diff-so-fancy --patch

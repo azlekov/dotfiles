@@ -1,0 +1,35 @@
+# Mac OS X uses path_helper and /etc/paths.d to preload PATH, clear it out first
+if [ -x /usr/libexec/path_helper ]; then
+    PATH=''
+    eval `/usr/libexec/path_helper -s`
+fi
+
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
+fi
+
+export JAVA_HOME=`/usr/libexec/java_home -v 11`
+export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
+export MANPATH="/usr/local/man:$MANPATH"
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+
+AGENT_SOCK=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
+
+if [[ ! -S $AGENT_SOCK ]]; then
+  gpg-agent --daemon --use-standard-socket &>/dev/null
+fi
+
+export GPG_TTY=$TTY
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
