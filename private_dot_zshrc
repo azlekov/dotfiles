@@ -31,7 +31,7 @@ if [[ -d "$ZDOTDIR" ]]; then
   done
 fi
 
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-[[ ! -f ~/.iterm2_shell_integration.zsh ]] || source ~/.iterm2_shell_integration.zsh
+[[ ! -f ~/.zsh/.p10k.zsh ]] || source ~/.zsh/.p10k.zsh
+[[ ! -f ~/.zsh/.iterm2_shell_integration.zsh ]] || source ~/.zsh/.iterm2_shell_integration.zsh
 
 autoload -U compinit && compinit
