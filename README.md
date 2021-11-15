@@ -9,6 +9,12 @@ with a single command:
 $ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply L3K0V
 ```
 
+Authenticate agains 1Password using:
+
+```console
+$ eval $(op signin <subdomain>.1password.com <email>)
+```
+
 Updating my dotfiles on any machine can be done via single command:
 
 ```console
