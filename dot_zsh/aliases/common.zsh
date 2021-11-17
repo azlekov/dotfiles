@@ -1,6 +1,7 @@
-alias dots='cd ~/Workspace/dotfiles'
+alias dots='chezmoi cd'
 alias work='cd ~/Workspace'
 alias dodi='cd ~/Workspace/dodi'
+alias dl='cd ~/Workspace/dl'
 
 alias sslme='sudo certbot -d lekov.me --manual --preferred-challenges dns certonly'
 
