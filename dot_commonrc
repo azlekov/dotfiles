@@ -7,6 +7,7 @@ fi
 export JAVA_HOME=`/usr/libexec/java_home -v 11`
 export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
+export PATH="$HOME/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
