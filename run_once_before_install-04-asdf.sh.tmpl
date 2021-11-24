@@ -1,29 +1,21 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/sh
 
-# Add required plugins
-asdf plugin-add nodejs
-asdf plugin-add ruby
-asdf plugin-add maven
-asdf plugin-add gradle
-asdf plugin-add flutter
-asdf plugin-add python
+while read plugin version
+do
+    if asdf plugin list | grep --silent $plugin
+    then
+        asdf plugin update $plugin
+    else
+        asdf plugin add $plugin
+        asdf install $plugin $version
+        asdf global $plugin $version
 
-# Install ASDF latest versions
-asdf install nodejs 16.13.0
-asdf install ruby 3.0.2
-asdf install flutter 2.5.3
-asdf install python 3.10.0
-asdf install maven 3.8.4
-
-# Set globals
-asdf global nodejs 16.13.0
-asdf global ruby 3.0.2
-asdf global maven 3.8.2
-asdf global flutter 2.5.3
-asdf global python 3.10.0
-asdf global maven 3.8.4
-
-corepack enable
+        if [ $plugin = "nodejs" ]
+        then
+            corepack enable
+        fi
+    fi
+done < ~/.tool-versions
 
 {{ end -}}
