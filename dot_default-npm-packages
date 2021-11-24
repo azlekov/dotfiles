@@ -4,5 +4,6 @@ yarn
 @ui5/cli
 generator-easy-ui5
 gatsby-cli
+@teambit/bvm
 alfred-code
 @bchatard/alfred-jetbrains
