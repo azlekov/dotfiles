@@ -7,8 +7,7 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 #####################
 
 # Taps
-tap 'adoptopenjdk/openjdk'
-tap 'armmbed/formulae'
+tap 'mdogan/zulu'
 tap 'heroku/brew'
 tap 'homebrew/bundle'
 tap 'homebrew/cask'
@@ -67,8 +66,7 @@ brew 'fzf' # For zoxide
 
 cask "1password"
 cask "1password-cli"
-cask "temurin8" # Good bye adoptopenjdk
-cask "temurin11" # Good bye adoptopenjdk
+cask "zulu-jdk11"
 cask "agenda"
 cask "alfred"
 cask "android-sdk"
