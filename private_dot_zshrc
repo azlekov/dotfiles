@@ -35,3 +35,6 @@ fi
 [[ ! -f ~/.zsh/.iterm2_shell_integration.zsh ]] || source ~/.zsh/.iterm2_shell_integration.zsh
 
 autoload -U compinit && compinit
+
+# https://github.com/asdf-vm/asdf/issues/1103
+export ASDF_DIR='/usr/local/opt/asdf/libexec'
