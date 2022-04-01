@@ -1,4 +1,4 @@
-# ![chezmoi logo](https://github.com/twpayne/chezmoi/raw/master/logo-144px.svg) chezmoi dotfiles
+# ![chezmoi logo](https://github.com/twpayne/chezmoi/blob/master/logo.svg) chezmoi dotfiles
 
 Managing my dotfiles, securely using [chezmoi](https://chezmoi.io) and [1password](https://1password.com).
 
