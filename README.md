@@ -16,7 +16,8 @@ But before that I should have setup and autheneticate 1Password CLI, so:
 Authenticate against 1Password using:
 
 ```console
-$ eval $(op signin <subdomain>.1password.com <email>)
+$ op account add --address $SUBDOMAIN.1password.com --email $EMAIL
+$ eval $(op signin --account $SUBDOMAIN)
 ```
 
 And now
