@@ -6,3 +6,5 @@ gatsby-cli
 @teambit/bvm
 commitizen
 cz-conventional-changelog
+netlify-cli
+pnpm@6
