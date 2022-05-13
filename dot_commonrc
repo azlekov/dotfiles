@@ -19,6 +19,8 @@ else
   export EDITOR='code'
 fi
 
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
 AGENT_SOCK=$(gpgconf --list-dirs | grep agent-socket | cut -d : -f 2)
 
 if [[ ! -S $AGENT_SOCK ]]; then
