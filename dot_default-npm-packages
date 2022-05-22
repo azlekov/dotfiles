@@ -3,7 +3,6 @@ np
 yarn
 @ui5/cli
 gatsby-cli
-@teambit/bvm
 commitizen
 cz-conventional-changelog
 netlify-cli
