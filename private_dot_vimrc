@@ -73,3 +73,6 @@ set expandtab
 " Clear highlighting on escape in normal mode
 nnoremap <esc> :noh<return><esc>
 nnoremap <esc>^[ <esc>^[
+
+" Enable fzf search
+set rtp+=/usr/local/opt/fzf
