@@ -5,4 +5,6 @@ install.sh
 .oh-my-zsh/cache
 .oh-my-zsh/cache/**
 .oh-my-zsh/plugins/**
+.oh-my-zsh/completions
+.oh-my-zsh/completions/**
 .oh-my-zsh/**/*.zwc
