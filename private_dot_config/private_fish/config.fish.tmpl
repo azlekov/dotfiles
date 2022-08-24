@@ -23,3 +23,25 @@ if status is-interactive
     abbr --add --global pyserver py -m http.server
     abbr --add --global pipup pip freeze --local | cut -d = -f 1  | xargs pip install -U
 end
+
+set -x GPG_TTY $TTY
+set -x LC_ALL en_US.UTF-8
+set -x LANG en_US.UTF-8
+
+set -x JAVA_HOME `/usr/libexec/java_home -v 11`
+set -x ANDROID_SDK_ROOT /usr/local/share/android-commandlinetools
+set -x SSH_AUTH_SOCK ~/.1password/agent.sock
+
+set -U fish_user_paths /usr/local/bin $fish_user_paths
+
+# Configure ASDF 
+source "(brew --prefix asdf)"/libexec/asdf.fish
+
+# Configure Homebrew completions
+if test -d (brew --prefix)"/share/fish/completions"
+    set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/completions
+end
+
+if test -d (brew --prefix)"/share/fish/vendor_completions.d"
+    set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+end
