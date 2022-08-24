@@ -1,0 +1,25 @@
+if status is-interactive
+    abbr --add --global work cd ~/Workspace
+    abbr --add --global dodi cd ~/Workspace/dodi
+    abbr --add --global dl cd ~/Workspace/dl
+
+    # Administer like a sir
+    abbr --add --global please sudo
+
+    abbr --add --global 1plogin op signin my.1password.com {{ .email | quote }}
+    abbr --add --global speedtest networkQuality
+
+    abbr --add --global badge tput bel
+    abbr --add --global stfu osascript -e 'set volume output muted true'
+    abbr --add --global pumpitup osascript -e 'set volume output volume 75'
+    abbr --add --global afk /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+
+    # Janitor goodies
+    abbr --add --global gradleclean rm -rf $HOME/.gradle/caches/
+    abbr --add --global pyclean find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf
+
+    # Python
+    abbr --add --global py python
+    abbr --add --global pyserver py -m http.server
+    abbr --add --global pipup pip freeze --local | cut -d = -f 1  | xargs pip install -U
+end
