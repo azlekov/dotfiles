@@ -43,6 +43,7 @@ set -gx ANDROID_SDK_ROOT /usr/local/share/android-commandlinetools
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
 set -U fish_user_paths /usr/local/bin $fish_user_paths
+set -U fish_user_paths /usr/local/MacGPG2/bin $fish_user_paths
 
 # Configure ASDF 
 source (brew --prefix asdf)"/libexec/asdf.fish"
