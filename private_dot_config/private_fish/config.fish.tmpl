@@ -59,3 +59,7 @@ end
 
 # Configure zoxide
 zoxide init fish | source
+
+# Configure PNPM
+set -gx PNPM_HOME "~/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
