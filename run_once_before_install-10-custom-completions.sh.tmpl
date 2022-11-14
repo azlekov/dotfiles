@@ -1,0 +1,12 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+if test ! $(which nhost); then
+    nhost completion fish > ~/.config/fish/completions/nhost.fish
+fi
+
+if test ! $(which hasura); then
+    sudo hasura completion bash --file=$(brew --prefix)/etc/bash_completion.d/hasura
+fi
+
+{{ end -}}

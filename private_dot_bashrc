@@ -8,6 +8,15 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+# Configure fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
+# Configure ASDF
 . $(brew --prefix asdf)/asdf.sh
+
+# Configure 1Password
+source <(op completion bash)
+
+# Configure PNPM
+export PNPM_HOME="/Users/azlekov/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"

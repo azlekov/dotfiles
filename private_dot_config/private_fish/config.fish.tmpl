@@ -48,6 +48,9 @@ set -U fish_user_paths /usr/local/MacGPG2/bin $fish_user_paths
 # Configure ASDF 
 source (brew --prefix asdf)"/libexec/asdf.fish"
 
+# Configure 1Password
+op completion fish | source
+
 # Configure Homebrew completions
 if test -d (brew --prefix)"/share/fish/completions"
     set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/completions
@@ -59,3 +62,7 @@ end
 
 # Configure zoxide
 zoxide init fish | source
+
+# Configure PNPM
+set -gx PNPM_HOME "/Users/azlekov/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
