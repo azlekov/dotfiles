@@ -1,21 +1,32 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/sh
 
+echo "✨ Configuring ASDF..."
+
 while read plugin version
 do
     if asdf plugin list | grep --silent $plugin
     then
         asdf plugin update $plugin
+        
     else
         asdf plugin add $plugin
         asdf install $plugin $version
         asdf global $plugin $version
-
-        if [ $plugin = "nodejs" ]
-        then
-            corepack enable
-        fi
+        asdf reshim $plugin
     fi
+
+    asdf install $plugin $version
+    asdf global $plugin $version
+    asdf reshim $plugin
+
+    if [ $plugin = "nodejs" ]
+    then
+        corepack enable
+        corepack prepare pnpm@latest --activate
+        corepack prepare yarn@stable --activate
+    fi
+
 done < ~/.tool-versions
 
 {{ end -}}

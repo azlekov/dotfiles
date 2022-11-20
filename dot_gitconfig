@@ -1,10 +1,6 @@
 [user]
 	name = Asen Lekov
 	email = asenlekoff@gmail.com
-	signingkey = 6C0C9DCD8A46C061
-
-[includeIf "gitdir:~/Workspace/dl/"]
-    path = ~/Workspace/dl/.gitconfig
 
 [alias]
   tags = tag -l
@@ -44,9 +40,6 @@
 
 [core]
 	excludesfile = ~/.gitignore_global
-	editor = vim
-	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [apply]
 	whitespace = nowarn
@@ -86,17 +79,8 @@
 	changed = green
 	untracked = cyan
 
-[credential]
-    helper = osxkeychain
-
-[diff]
-    tool = vimdiff
-
 [github]
 	user = L3K0V
-
-[ghi]
-	token = !security find-internet-password -a L3K0V -s github.com -l 'ghi token' -w
 
 [filter "hawser"]
 	clean = git hawser clean %f
@@ -114,12 +98,6 @@
 	smudge = git media smudge %f
     required = true
 
-[gpg]
-	program = /usr/local/MacGPG2/bin/gpg
-
-[commit]
-	gpgsign = true
-
 [pull]
 	rebase = true
 
@@ -131,6 +109,3 @@
 
 [init]
 	defaultBranch = main
-
-[interactive]
-	diffFilter = diff-so-fancy --patch

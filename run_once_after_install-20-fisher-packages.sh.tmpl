@@ -1,0 +1,7 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/opt/homebrew/bin/fish
+
+echo "🐟 Updating fisher packages..."
+fisher update
+
+{{ end -}}

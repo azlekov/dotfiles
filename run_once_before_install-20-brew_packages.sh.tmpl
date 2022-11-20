@@ -1,5 +1,7 @@
-{{- if (eq .chezmoi.os "darwin") -}}
+{{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
+
+echo "🍺 Installing homebrew packages..."
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 #####################
@@ -7,20 +9,17 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 #####################
 
 # Taps
-tap 'mdogan/zulu'
 tap 'heroku/brew'
-tap 'homebrew/bundle'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
-tap 'homebrew/cask-versions'
 tap 'homebrew/core'
 
 # GNU utils
-brew 'coreutils' # Those that come with macOS are outdated
+brew 'coreutils'
 brew 'findutils'
 
 # Bash fish and dotfiles
-brew 'bash' # Latest Bash version
+brew 'bash'
 brew 'bash-completion@2'
 brew 'zsh'
 brew 'fish'
@@ -29,24 +28,22 @@ brew 'chezmoi'
 brew 'mackup'
 brew 'mas' # Mac App Store manager
 
+{{ if .personal_device }}
 # Development
 brew 'ktlint'
 brew 'swiftformat'
-brew 'swiftlint'
-brew 'heroku/brew/heroku'
+brew 'swiftlint' # Requires XCode to be installed first
+brew 'heroku'
 brew 'cocoapods'
 brew 'cloc'
+{{ end }}
 
 # Development environment
 brew 'asdf'
 
 # Utilities
-brew 'detox'
-brew 'diff-so-fancy'
 brew 'git'
 brew 'gnupg'
-brew 'highlight'
-brew 'pkg-config' # https://github.com/driesvints/dotfiles/issues/20
 brew 'pinentry-mac'
 brew 'tldr'
 brew 'trash'
@@ -63,44 +60,50 @@ brew 'topgrade'
 # Casks             #
 #####################
 
-cask "1password-beta"
+# Common
+cask "1password"
 cask "1password-cli"
-cask "zulu-jdk11"
-cask "raycast"
-cask "agenda"
-cask "adguard"
-cask "android-commandlinetools"
-cask "android-platform-tools"
-cask "android-studio"
-cask "coconutbattery"
-cask "citrix-workspace"
+cask "temurin"
 cask "docker"
 cask 'gpg-suite'
 cask "github"
-cask "google-chrome"
-cask 'imageoptim'
-cask "iina" # Open-Source Video Player
+# cask 'imageoptim' # ARM not supported yet
 cask "intellij-idea"
 cask "iterm2"
 cask "keka"
 cask "kekaexternalhelper"
+cask "obsidian"
+cask "parallels"
+cask "slack"
+cask "visual-studio-code"
+
+{{ if eq .device_type "laptop" }}
+cask "coconutbattery"
+cask "rectangle"
+{{ end }}
+
+{{ if .personal_device }}
+cask "android-commandlinetools"
+cask "android-platform-tools"
+cask "android-studio"
+cask "brave-browser"
 cask "ledger-live"
+cask "iina" # Open-Source Video Player
+cask "setapp" # A collection of apps
+cask "sketch"
+cask "spotify"
+cask "raindropio"
+cask "raycast"
+cask "telegram"
+{{ end }}
+
+{{ if .work_device }}
+cask "citrix-workspace"
 cask "microsoft-auto-update"
 cask "microsoft-edge"
 cask "microsoft-office"
 cask "microsoft-teams"
-cask "obsidian"
-cask "parallels"
-cask "setapp" # A collection of apps
-cask "sketch"
-cask "slack"
-cask "spotify"
-cask "swiftformat-for-xcode"
-cask "raindropio"
-cask "rectangle"
-cask "telegram"
-cask "transmission"
-cask "visual-studio-code"
+{{ end }}
 
 # Quicklook
 cask 'qlmarkdown'
@@ -111,7 +114,6 @@ cask 'qlstephen'
 cask 'font-lato'
 cask 'font-open-sans'
 cask 'font-roboto'
-cask 'font-source-code-pro-for-powerline'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
@@ -124,17 +126,22 @@ cask "font-ubuntu"
 
 # Mac App Store manager
 mas '1Password for Safari', id: 1569813296
-mas 'Save to Raindrop.io', id: 1549370672
-mas 'Reeder', id: 1529448980
-mas 'Mela', id: 1568924476
-mas "Xcode", id: 497799835
 mas 'Pages', id: 409201541
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
 
+{{ if .personal_device }}
+mas 'Save to Raindrop.io', id: 1549370672
+mas 'Reeder', id: 1529448980
+mas 'Mela', id: 1568924476
+mas "Xcode", id: 497799835
+{{ end }}
 
 #########################
 # Brewfile contents end #
 #########################
 EOF
 {{ end -}}
+
+echo "🍺 Cleaning up after homebrew..."
+brew cleanup

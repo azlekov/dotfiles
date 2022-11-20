@@ -1,6 +1,7 @@
 {{- if (eq .chezmoi.os "darwin") -}}
 #!/bin/bash
 
+echo "🖥️ Restore settings via mackup..."
 mackup restore
 
 {{ end -}}
