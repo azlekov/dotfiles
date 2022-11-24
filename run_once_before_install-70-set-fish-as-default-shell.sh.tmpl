@@ -1,0 +1,9 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+grep "fish" /etc/shells >/dev/null || echo /opt/homebrew/bin/fish | cat - /etc/shells | sudo tee /etc/shells > /dev/null
+
+sudo chsh -s /opt/homebrew/bin/fish
+chsh -s /opt/homebrew/bin/fish
+
+{{ end -}}

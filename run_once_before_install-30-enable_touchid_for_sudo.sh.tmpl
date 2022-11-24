@@ -2,6 +2,6 @@
 #!/bin/bash
 
 echo "👇 Set Touch ID for sudo root access"
-grep pam_tid /etc/pam.d/sudo >/dev/null || echo auth sufficient pam_tid.so | cat - /etc/pam.d/sudo | sudo tee /etc/pam.d/sudo > /dev/null
+grep "pam_tid" /etc/pam.d/sudo >/dev/null || echo auth sufficient pam_tid.so | cat - /etc/pam.d/sudo | sudo tee /etc/pam.d/sudo > /dev/null
 
 {{ end -}}

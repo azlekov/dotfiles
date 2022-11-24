@@ -32,7 +32,6 @@ if test -d (brew --prefix)"/share/fish/vendor_completions.d"
 end
 
 set -U fish_user_paths /usr/local/bin $fish_user_paths
-set -U fish_user_paths /usr/local/MacGPG2/bin $fish_user_paths
 
 # Configure ASDF
 source (brew --prefix asdf)"/libexec/asdf.fish"
