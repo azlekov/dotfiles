@@ -66,3 +66,7 @@ if status is-interactive
     abbr --add --global pyserver py -m http.server
     abbr --add --global pipup pip freeze --local | cut -d = -f 1  | xargs pip install -U
 end
+
+if set -q ITERM_SESSION_ID && test -e ~/.iterm2_shell_integration.fish
+   source ~/.iterm2_shell_integration.fish
+end
