@@ -1,6 +1,6 @@
 # ![chezmoi logo](https://github.com/twpayne/chezmoi/blob/master/logo.svg) chezmoi dotfiles
 
-Managing my dotfiles, securely using [chezmoi](https://chezmoi.io) and [1password](https://1password.com).
+Managing my dotfiles, securely using [chezmoi](https://chezmoi.io)
 
 With chezmoi, I can install chezmoi and all my dotfiles on a new, empty machine
 with a single command:
@@ -8,19 +8,6 @@ with a single command:
 ```console
 $ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply L3K0V
 ```
-
-But before that I should have setup and autheneticate 1Password CLI, so:
-
-[Download 1Password CLI](https://1password.com/downloads/command-line/)
-
-Authenticate against 1Password using:
-
-```console
-$ op account add --address $SUBDOMAIN.1password.com --email $EMAIL
-$ eval $(op signin --account $SUBDOMAIN)
-```
-
-And now
 
 Updating my dotfiles on any machine can be done via single command:
 
@@ -38,10 +25,4 @@ If you're happy with the changes, run:
 
 ```console
 $ chezmoi update
-```
-
-Updating my oh-my-zsh and all external plugins can be done via:
-
-```console
-$ chezmoi update -R
 ```

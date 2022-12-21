@@ -1,0 +1,10 @@
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
+
+# Configure PNPM
+export PNPM_HOME="/Users/azlekov/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock

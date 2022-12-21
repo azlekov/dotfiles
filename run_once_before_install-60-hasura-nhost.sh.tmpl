@@ -1,0 +1,13 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/bash
+
+if test ! $(which hasura); then
+    curl -L https://github.com/hasura/graphql-engine/raw/stable/cli/get.sh | bash
+fi
+
+if test ! $(which nhost); then
+    sudo curl -L https://raw.githubusercontent.com/nhost/cli/main/get.sh | bash
+    nhost completion fish > ~/.config/fish/completions/nhost.fish
+fi
+
+{{ end -}}
