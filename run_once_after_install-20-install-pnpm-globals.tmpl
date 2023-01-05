@@ -1,0 +1,6 @@
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/opt/homebrew/bin/fish
+
+pnpm add -g commitizen cz-conventional-changelog tabtab
+
+{{ end -}}
