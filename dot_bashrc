@@ -1,0 +1,32 @@
+# Configure Homebrew completions
+if type brew &>/dev/null
+then
+  HOMEBREW_PREFIX="$(brew --prefix)"
+  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
+  then
+    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+  else
+    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+    do
+      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+    done
+  fi
+fi
+
+# Configure ASDF
+. $(brew --prefix asdf)/libexec/asdf.sh
+
+# Configure zoxide
+eval "$(zoxide init bash)"
+
+# Configure fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+
+export VISUAL='code'

@@ -9,6 +9,12 @@ end
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
+# Set Android common paths
+set -gx PATH $ANDROID_HOME/tools $PATH
+set -gx PATH $ANDROID_HOME/tools/bin $PATH
+set -gx PATH $ANDROID_HOME/platform-tools $PATH
+set -gx PATH $ANDROID_HOME/emulator $PATH
+
 # Preferred editor for local and remote sessions
 if test -n "$SSH_CONNECTION"
   set -gx EDITOR "vim"
@@ -70,3 +76,8 @@ end
 if set -q ITERM_SESSION_ID && test -e ~/.iterm2_shell_integration.fish
    source ~/.iterm2_shell_integration.fish
 end
+
+
+# tabtab source for packages
+# uninstall by removing these lines
+[ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
