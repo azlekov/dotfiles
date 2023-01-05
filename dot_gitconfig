@@ -8,7 +8,7 @@
   remotes = remote -v
   commits = shortlog -s -n
 
-  master = checkout master
+  main = checkout main
 
   a = add
 
@@ -80,7 +80,7 @@
 	untracked = cyan
 
 [github]
-	user = L3K0V
+	user = azlekov
 
 [filter "hawser"]
 	clean = git hawser clean %f
