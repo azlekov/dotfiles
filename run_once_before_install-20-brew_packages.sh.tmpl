@@ -33,7 +33,6 @@ brew 'ktlint'
 brew 'swiftformat'
 brew 'swiftlint' # Requires XCode to be installed first
 brew 'heroku'
-brew 'cocoapods'
 brew 'cloc'
 {{ end }}
 
@@ -76,7 +75,6 @@ cask "visual-studio-code"
 
 {{ if eq .device_type "laptop" }}
 cask "coconutbattery"
-cask "rectangle"
 {{ end }}
 
 {{ if .personal_device }}
@@ -91,7 +89,9 @@ cask "sketch"
 cask "spotify"
 cask "raindropio"
 cask "raycast"
+cask "rectangle"
 cask "telegram"
+cask "transmission"
 cask "viber"
 {{ end }}
 
