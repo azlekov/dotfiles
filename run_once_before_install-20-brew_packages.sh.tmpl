@@ -13,6 +13,7 @@ tap 'heroku/brew'
 tap 'homebrew/cask'
 tap 'homebrew/cask-fonts'
 tap 'homebrew/core'
+tap 'supabase/tap'
 
 # GNU utils
 brew 'coreutils'
@@ -32,13 +33,13 @@ brew 'mas' # Mac App Store manager
 brew 'ktlint'
 brew 'swiftformat'
 brew 'swiftlint' # Requires XCode to be installed first
-brew 'heroku'
 brew 'cloc'
 {{ end }}
 
 # Development environment
 brew 'asdf'
 brew 'platformio'
+brew 'supabase'
 
 # Utilities
 brew 'git'
@@ -67,7 +68,6 @@ cask "github"
 # cask 'imageoptim' # ARM not supported yet
 cask "iterm2"
 cask "keka"
-cask "kekaexternalhelper"
 cask "obsidian"
 cask "parallels"
 cask "sf-symbols"
@@ -104,11 +104,6 @@ cask "microsoft-edge"
 cask "microsoft-office"
 cask "microsoft-teams"
 {{ end }}
-
-# Quicklook
-cask 'qlmarkdown'
-cask 'quicklook-json'
-cask 'qlstephen'
 
 # Fonts
 cask 'font-lato'
