@@ -14,3 +14,6 @@ export PNPM_HOME="/Users/azlekov/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8

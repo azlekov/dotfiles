@@ -15,6 +15,9 @@ set -gx PATH $ANDROID_HOME/tools/bin $PATH
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
 set -gx PATH $ANDROID_HOME/emulator $PATH
 
+set -gx LANG en_US.UTF-8
+set -gx LC_ALL en_US.UTF-8
+
 # Preferred editor for local and remote sessions
 if test -n "$SSH_CONNECTION"
   set -gx EDITOR "vim"
