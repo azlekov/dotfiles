@@ -69,14 +69,8 @@ cask "keka"
 cask "obsidian"
 cask "parallels"
 cask "sf-symbols"
-cask "slack"
 cask "visual-studio-code"
 
-{{ if eq .device_type "laptop" }}
-cask "coconutbattery"
-{{ end }}
-
-{{ if .personal_device }}
 cask "android-commandlinetools"
 cask "android-platform-tools"
 cask "android-studio"
@@ -93,15 +87,6 @@ cask "rectangle"
 cask "telegram"
 cask "transmission"
 cask "viber"
-{{ end }}
-
-{{ if .work_device }}
-cask "citrix-workspace"
-# cask "microsoft-auto-update"
-cask "microsoft-edge"
-# cask "microsoft-office"
-# cask "microsoft-teams"
-{{ end }}
 
 # Fonts
 cask 'font-lato'
@@ -122,13 +107,10 @@ mas '1Password for Safari', id: 1569813296
 mas 'Pages', id: 409201541
 mas 'Keynote', id: 409183694
 mas 'Numbers', id: 409203825
-
-{{ if .personal_device }}
 mas 'Save to Raindrop.io', id: 1549370672
 mas 'Reeder', id: 1529448980
 mas 'Mela', id: 1568924476
 mas "Xcode", id: 497799835
-{{ end }}
 
 #########################
 # Brewfile contents end #
