@@ -1,6 +1,3 @@
-{{ $personal_device := false }}
-{{ $work_device := false }}
-
 {{ $device_type := "desktop" }}
 {{ if eq .chezmoi.os "darwin" }}
 {{   if contains "MacBook" (output "sysctl" "-n" "hw.model") }}
@@ -16,11 +13,6 @@
 
 {{ $email := promptString "email" -}}
 
-{{ $personal_device = promptBool "personal_device" }}
-{{ $work_device = promptBool "work_device" }}
-
 [data]
   email = {{ $email | quote }}
-  personal_device = {{ $personal_device }}
-  work_device = {{ $work_device }}
   device_type = {{ $device_type | quote }}

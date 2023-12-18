@@ -1,5 +1,14 @@
-{{- if eq .chezmoi.os "darwin" -}}
-#!/bin/bash
+{{- if (eq .chezmoi.os "darwin") -}}
+#!/bin/sh
+
+echo "🚀 Setting up your mac..."
+
+if test ! $(which brew); then
+  echo "🍺 Installing homebrew..."
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+brew update
 
 echo "🍺 Installing homebrew packages..."
 
@@ -17,105 +26,108 @@ brew 'coreutils'
 brew 'findutils'
 
 # Bash fish and dotfiles
-brew 'bash'
 brew 'bash-completion@2'
-brew 'zsh'
-brew 'fish'
+brew 'bash'
 brew 'chezmoi'
+brew 'fish'
+brew 'zsh'
 
 brew 'mas' # Mac App Store manager
 
-{{ if .personal_device }}
 # Development
-brew 'ktlint'
-brew 'kdoctor'
-brew 'swiftformat'
-brew 'swiftlint' # Requires XCode to be installed first
 brew 'cloc'
-{{ end }}
+brew 'kdoctor'
+brew 'ktlint'
+brew 'swiftformat'
+brew 'swiftlint' # Requires Xcode to be installed first
 
 # Development environment
 brew 'asdf'
+brew 'ollama'
 brew 'platformio'
 brew 'supabase'
 
 # Utilities
+brew 'fzf' # For zoxide
 brew 'git'
+brew 'grep' # Global Regural Expression Print
 brew 'tldr'
+brew 'topgrade'
 brew 'trash'
 brew 'tree'
 brew 'vim'
 brew 'wget'
 brew 'wifi-password'
-brew 'grep' # Global Regural Expression Print
 brew 'zoxide' # Better cd in Terminal
-brew 'fzf' # For zoxide
-brew 'topgrade'
 
 #####################
 # Casks             #
 #####################
 
 # Common
-cask "1password"
 cask "1password-cli"
+cask "1password"
 cask "adguard"
-cask "temurin"
 cask "docker"
-cask 'imageoptim'
+cask "imageoptim"
 cask "iterm2"
 cask "keka"
 cask "obsidian"
+cask "orbstack"
 cask "parallels"
 cask "sf-symbols"
+cask "temurin"
 cask "visual-studio-code"
 
 cask "android-commandlinetools"
 cask "android-platform-tools"
 cask "android-studio"
 cask "google-chrome"
-cask "ledger-live"
 cask "iina" # Open-Source Video Player
 cask "intellij-idea"
-cask "setapp" # A collection of apps
-cask "spotify"
+cask "ledger-live"
 cask "raindropio"
 cask "raycast"
 cask "rectangle"
+cask "setapp" # A collection of apps
+cask "spotify"
 cask "telegram"
 cask "transmission"
 
 # Fonts
 cask 'font-lato'
+cask 'font-meslo-for-powerline'
+cask 'font-meslo-lg-nerd-font'
+cask 'font-meslo-lg'
 cask 'font-open-sans'
 cask 'font-roboto'
 cask 'font-source-code-pro'
 cask 'font-source-sans-pro'
 cask 'font-source-serif-pro'
-cask 'font-meslo-for-powerline'
-cask 'font-meslo-lg-nerd-font'
-cask 'font-meslo-lg'
 cask "font-hack-nerd-font"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-ubuntu"
 
 # Mac App Store manager
 mas '1Password for Safari', id: 1569813296
-mas 'Pages', id: 409201541
 mas 'Keynote', id: 409183694
-mas 'Numbers', id: 409203825
-mas 'Save to Raindrop.io', id: 1549370672
-mas 'Reeder', id: 1529448980
 mas 'Mela', id: 1568924476
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Reeder', id: 1529448980
+mas 'Save to Raindrop.io', id: 1549370672
 mas "Xcode", id: 497799835
 
 #########################
 # Brewfile contents end #
 #########################
 EOF
-{{ end -}}
 
 echo "🍺 Cleaning up after homebrew..."
 brew cleanup
 
+
+# TODO in separate script
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+{{ end -}}
