@@ -1,7 +1,6 @@
-{{- if (eq .chezmoi.os "darwin") -}}
-#!/bin/sh
+#!{{ lookPath "sh" }}
 
-echo "✨ Configuring ASDF..."
+{{ if eq .chezmoi.os "darwin" -}}
 
 while read plugin version
 do

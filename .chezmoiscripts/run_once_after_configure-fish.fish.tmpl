@@ -1,0 +1,14 @@
+#!{{ lookPath "fish" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+
+if ! type -q fisher &>/dev/null
+    if command -v curl &>/dev/null
+        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update
+    else if command -v wget &>/dev/null
+        wget -qO- https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher update
+    end
+    fish_update_completions
+end
+
+{{ end -}}

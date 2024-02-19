@@ -1,5 +1,6 @@
-{{- if (eq .chezmoi.os "darwin") -}}
-#!/bin/bash
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
 
 grep "fish" /etc/shells >/dev/null || echo /opt/homebrew/bin/fish | cat - /etc/shells | sudo tee /etc/shells > /dev/null
 

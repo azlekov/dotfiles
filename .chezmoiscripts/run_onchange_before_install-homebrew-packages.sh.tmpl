@@ -1,0 +1,25 @@
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+export HOMEBREW_INSTALL_FROM_API=1
+alias brew=/opt/homebrew/bin/brew
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+# Mac App Store manager
+mas '1Password for Safari', id: 1569813296
+mas 'Keynote', id: 409183694
+mas 'Mela', id: 1568924476
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Reeder', id: 1529448980
+mas 'Save to Raindrop.io', id: 1549370672
+mas "Xcode", id: 497799835
+EOF
+{{ end -}}

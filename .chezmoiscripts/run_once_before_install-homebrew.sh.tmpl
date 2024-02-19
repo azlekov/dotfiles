@@ -1,0 +1,9 @@
+#!{{ lookPath "sh" }}
+
+export HOMEBREW_INSTALL_FROM_API=1
+alias brew=/opt/homebrew/bin/brew
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+brew tap homebrew/cask-fonts
+brew tap supabase/tap
