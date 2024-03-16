@@ -13,6 +13,7 @@ packages:
     - git
     - grep
     - hasura-cli
+    - jq
     - kdoctor
     - ktlint
     - mas
@@ -56,6 +57,7 @@ packages:
     - ledger-live
     - obsidian
     - orbstack
+    - parallels
     - raindropio
     - raycast
     - rectangle
