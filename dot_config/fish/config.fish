@@ -14,6 +14,7 @@ set -gx PATH $ANDROID_HOME/tools $PATH
 set -gx PATH $ANDROID_HOME/tools/bin $PATH
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
 set -gx PATH $ANDROID_HOME/emulator $PATH
+set -gx PATH $HOME/.pub-cache/bin $PATH
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
