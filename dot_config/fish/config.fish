@@ -7,6 +7,8 @@ if status --is-interactive
 end
 
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
+set -x FLUTTER_ROOT (asdf where flutter)
+
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
 # Set Android common paths
@@ -14,6 +16,8 @@ set -gx PATH $ANDROID_HOME/tools $PATH
 set -gx PATH $ANDROID_HOME/tools/bin $PATH
 set -gx PATH $ANDROID_HOME/platform-tools $PATH
 set -gx PATH $ANDROID_HOME/emulator $PATH
+
+# Dart
 set -gx PATH $HOME/.pub-cache/bin $PATH
 
 set -gx LANG en_US.UTF-8

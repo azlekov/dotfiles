@@ -2,12 +2,15 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
+export FLUTTER_ROOT=$(asdf where flutter)
 
 # Configure ANDROID common paths
 export PATH="$ANDROID_HOME/tools:$PATH"
 export PATH="$ANDROID_HOME/tools/bin:$PATH"
 export PATH="$ANDROID_HOME/platform-tools:$PATH"
 export PATH="$ANDROID_HOME/emulator:$PATH"
+
+# Dart
 export PATH="$HOME/.pub-cache/bin:$PATH"
 
 # Configure PNPM
