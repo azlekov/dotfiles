@@ -8,6 +8,7 @@ usage = "latest"
 dart = "latest"
 "pipx:argcomplete" = "latest"
 "pipx:black" = "latest"
+"pipx:poetry" = "latest"
 
 [settings]
 experimental = true

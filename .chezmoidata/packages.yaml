@@ -2,6 +2,7 @@ packages:
   brews:
     - bash
     - bash-completion@2
+    - carapace
     - chezmoi
     - cloc
     - coreutils

@@ -1,3 +1,4 @@
+# pipx completions
 
 function __fish_pipx_complete
     set -x _ARGCOMPLETE 1
