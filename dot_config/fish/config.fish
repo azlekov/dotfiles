@@ -50,9 +50,10 @@ end
 set -U fish_user_paths /usr/local/bin $fish_user_paths
 
 
-# Configure mise
+# Configure mise and atuin
 if status is-interactive
   mise activate fish | source
+  atuin init fish | source
 else
   mise activate fish --shims | source
 end
@@ -97,7 +98,7 @@ end
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
 
-set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,inshellisense' # optional
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
 mkdir -p ~/.config/fish/completions
 carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
 carapace _carapace | source

@@ -16,6 +16,9 @@ fi
 # Configure mise
 eval "$(mise activate bash --shims)"
 
+# Configure Atuin
+eval "$(atuin init bash)"
+
 # Configure pipx completions
 eval "$(register-python-argcomplete pipx)"
 
@@ -33,3 +36,6 @@ else
 fi
 
 export VISUAL='code'
+
+export CARAPACE_BRIDGES='zsh,fish,bash,argcomplete' # optional
+source <(carapace _carapace)

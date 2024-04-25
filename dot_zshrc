@@ -16,6 +16,9 @@ eval "$(register-python-argcomplete pipx)"
 # Configure zoxide
 eval "$(zoxide init zsh)"
 
+# Configure Atuin
+eval "$(atuin init zsh)"
+
 # Configure fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -27,3 +30,8 @@ else
 fi
 
 export VISUAL='code'
+
+export CARAPACE_BRIDGES='zsh,fish,bash,argcomplete' # optional
+zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
+zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
+source <(carapace _carapace)
