@@ -7,7 +7,7 @@ if status --is-interactive
 end
 
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
-set -x FLUTTER_ROOT (asdf where flutter)
+set -x FLUTTER_ROOT (mise where flutter)
 
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
@@ -19,6 +19,8 @@ set -gx PATH $ANDROID_HOME/emulator $PATH
 
 # Dart
 set -gx PATH $HOME/.pub-cache/bin $PATH
+
+set -gx PATH $PATH /Users/azlekov/.local/bin
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -47,8 +49,13 @@ end
 
 set -U fish_user_paths /usr/local/bin $fish_user_paths
 
-# Configure ASDF
-source (brew --prefix asdf)"/libexec/asdf.fish"
+
+# Configure mise
+if status is-interactive
+  mise activate fish | source
+else
+  mise activate fish --shims | source
+end
 
 # Configure zoxide
 zoxide init fish | source
