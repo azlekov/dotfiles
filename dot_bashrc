@@ -23,7 +23,7 @@ eval "$(atuin init bash)"
 eval "$(register-python-argcomplete pipx)"
 
 # Configure zoxide
-eval "$(zoxide init bash)"
+eval "$(zoxide init bash --cmd cd)"
 
 # Configure fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash

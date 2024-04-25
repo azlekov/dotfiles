@@ -59,7 +59,7 @@ else
 end
 
 # Configure zoxide
-zoxide init fish | source
+zoxide init fish --cmd cd | source
 
 # Configure 1Password
 op completion fish | source
