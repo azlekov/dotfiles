@@ -16,9 +16,6 @@ fi
 # Configure mise
 eval "$(mise activate bash --shims)"
 
-# Configure Atuin
-eval "$(atuin init bash)"
-
 # Configure pipx completions
 eval "$(register-python-argcomplete pipx)"
 
