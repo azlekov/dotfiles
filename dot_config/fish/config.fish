@@ -6,6 +6,10 @@ if status --is-interactive
   eval (/opt/homebrew/bin/brew shellenv)
 end
 
+if type brew >/dev/null 2>&1
+    set -x PATH (brew --prefix)/opt/coreutils/libexec/gnubin $PATH
+end
+
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
 set -x FLUTTER_ROOT (mise where flutter)
 
@@ -96,6 +100,17 @@ end
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+# Directory Colors
+set config_path "$XDG_CONFIG_HOME"
+if test -z "$config_path"
+    set config_path "$HOME/.config"
+end
+
+set script_path "$config_path/shell/lscolors.csh"
+if test -f "$script_path"
+    source $script_path
+end
 
 set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
 mkdir -p ~/.config/fish/completions

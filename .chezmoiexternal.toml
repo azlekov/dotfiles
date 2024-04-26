@@ -1,0 +1,9 @@
+### LSColors
+[".config/shell/lscolors.sh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/lscolors.sh"
+
+### LSColors for Fish
+[".config/shell/lscolors.csh"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/lscolors.csh"

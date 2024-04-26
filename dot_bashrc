@@ -1,6 +1,9 @@
+[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ] || . "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+
 # Configure Homebrew completions
 if type brew &>/dev/null
 then
+  PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
   HOMEBREW_PREFIX="$(brew --prefix)"
   if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]
   then

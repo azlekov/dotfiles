@@ -1,7 +1,10 @@
+[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh" ] || source "${XDG_CONFIG_HOME:-$HOME/.config}/shell/profile.sh"
+
 # Configure Homebrew completions
 if type brew &>/dev/null
 then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+  PATH="$(brew --prefix)/opt/coreutils/libexec/gnubin:$PATH"
 
   autoload -Uz compinit
   compinit
