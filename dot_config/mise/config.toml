@@ -1,0 +1,14 @@
+[tools]
+node = "lts"
+python = "3.11"
+ruby = "latest"
+deno = "latest"
+flutter = "latest"
+usage = "latest"
+dart = "latest"
+"pipx:argcomplete" = "latest"
+"pipx:black" = "latest"
+"pipx:poetry" = "latest"
+
+[settings]
+experimental = true

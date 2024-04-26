@@ -1,8 +1,8 @@
 packages:
   brews:
-    - asdf
     - bash
     - bash-completion@2
+    - carapace
     - chezmoi
     - cloc
     - coreutils
@@ -17,6 +17,7 @@ packages:
     - kdoctor
     - ktlint
     - mas
+    - mise
     - ollama
     - platformio
     - supabase

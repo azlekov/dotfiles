@@ -13,11 +13,14 @@ then
   fi
 fi
 
-# Configure ASDF
-. $(brew --prefix asdf)/libexec/asdf.sh
+# Configure mise
+eval "$(mise activate bash --shims)"
+
+# Configure pipx completions
+eval "$(register-python-argcomplete pipx)"
 
 # Configure zoxide
-eval "$(zoxide init bash)"
+eval "$(zoxide init bash --cmd cd)"
 
 # Configure fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
@@ -30,3 +33,6 @@ else
 fi
 
 export VISUAL='code'
+
+export CARAPACE_BRIDGES='zsh,fish,bash,argcomplete' # optional
+source <(carapace _carapace)

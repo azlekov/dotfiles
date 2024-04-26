@@ -7,7 +7,7 @@ if status --is-interactive
 end
 
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
-set -x FLUTTER_ROOT (asdf where flutter)
+set -x FLUTTER_ROOT (mise where flutter)
 
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 
@@ -19,6 +19,8 @@ set -gx PATH $ANDROID_HOME/emulator $PATH
 
 # Dart
 set -gx PATH $HOME/.pub-cache/bin $PATH
+
+set -gx PATH $PATH /Users/azlekov/.local/bin
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -47,11 +49,16 @@ end
 
 set -U fish_user_paths /usr/local/bin $fish_user_paths
 
-# Configure ASDF
-source (brew --prefix asdf)"/libexec/asdf.fish"
+
+# Configure mise
+if status is-interactive
+  mise activate fish | source
+else
+  mise activate fish --shims | source
+end
 
 # Configure zoxide
-zoxide init fish | source
+zoxide init fish --cmd cd | source
 
 # Configure 1Password
 op completion fish | source
@@ -89,3 +96,8 @@ end
 # tabtab source for packages
 # uninstall by removing these lines
 [ -f ~/.config/tabtab/fish/__tabtab.fish ]; and . ~/.config/tabtab/fish/__tabtab.fish; or true
+
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
+mkdir -p ~/.config/fish/completions
+carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
+carapace _carapace | source
