@@ -68,6 +68,11 @@ zoxide init fish --cmd cd | source
 op completion fish | source
 
 if status is-interactive
+    alias py "python"
+    
+    alias preview "fzf --preview 'bat --color=always --style=numbers --line-range=:500 {}'"
+    alias cat "bat --paging=never"
+
     abbr --add --global work cd ~/Workspace
     abbr --add --global dodi cd ~/Workspace/dodi
 
@@ -87,9 +92,7 @@ if status is-interactive
     abbr --add --global pyclean find . | grep -E '(__pycache__|\.pyc|\.pyo$)' | xargs rm -rf
 
     # Python
-    abbr --add --global py python
     abbr --add --global pyserver py -m http.server
-    abbr --add --global pipup pip freeze --local | cut -d = -f 1  | xargs pip install -U
 end
 
 if set -q ITERM_SESSION_ID && test -e ~/.iterm2_shell_integration.fish
