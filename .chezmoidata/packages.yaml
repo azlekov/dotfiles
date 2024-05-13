@@ -6,6 +6,7 @@ packages:
     - carapace
     - chezmoi
     - cloc
+    - commitizen
     - coreutils
     - docker
     - findutils
