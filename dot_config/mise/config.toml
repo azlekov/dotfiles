@@ -12,3 +12,4 @@ dart = "latest"
 
 [settings]
 experimental = true
+disable_hints = ["false"]
