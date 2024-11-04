@@ -1,6 +1,5 @@
 [tools]
 node = "lts"
-python = "3.11"
 ruby = "latest"
 deno = "latest"
 flutter = "latest"
@@ -9,6 +8,7 @@ dart = "latest"
 "pipx:argcomplete" = "latest"
 "pipx:black" = "latest"
 "pipx:poetry" = "latest"
+python = "3.13.0"
 
 [settings]
 experimental = true

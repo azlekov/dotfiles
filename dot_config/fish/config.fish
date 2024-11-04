@@ -51,7 +51,8 @@ if test -d (brew --prefix)"/share/fish/vendor_completions.d"
     set -gx fish_complete_path $fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
 end
 
-set -U fish_user_paths /usr/local/bin $fish_user_paths
+set -U fish_user_paths /usr/local/bin $fish_user_paths 
+
 
 
 # Configure mise
@@ -115,7 +116,7 @@ if test -f "$script_path"
     source $script_path
 end
 
-set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
-mkdir -p ~/.config/fish/completions
-carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
-carapace _carapace | source
+# set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
+# mkdir -p ~/.config/fish/completions
+# carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
+# carapace _carapace | source
