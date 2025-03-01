@@ -10,7 +10,7 @@ packages:
     - coreutils
     - docker
     - findutils
-    - fish
+    - fish-shell/fish-beta-4/fish
     - fzf
     - git
     - grep
@@ -51,22 +51,27 @@ packages:
     - font-sauce-code-pro-nerd-font
     - font-source-code-pro
     - font-ubuntu
+    - ghostty
     - google-chrome
     - iina
     - imageoptim
     - intellij-idea
-    - iterm2
     - keka
     - ledger-live
+    - lm-studio
+    - msty
     - obsidian
+    - openmtp
     - orbstack
     - parallels
     - raindropio
     - raycast
     - rectangle
+    - reflector
     - setapp
     - sf-symbols
     - telegram
     - temurin
+    - transmission
     - visual-studio-code
     - xcodes

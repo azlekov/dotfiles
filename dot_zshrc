@@ -35,3 +35,6 @@ export CARAPACE_BRIDGES='zsh,fish,bash,argcomplete' # optional
 zstyle ':completion:*' format $'\e[2;37mCompleting %d\e[m'
 zstyle ':completion:*:git:*' group-order 'main commands' 'alias commands' 'external commands'
 source <(carapace _carapace)
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/azlekov/.lmstudio/bin"

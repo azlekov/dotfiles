@@ -116,7 +116,14 @@ if test -f "$script_path"
     source $script_path
 end
 
-# set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
+set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
 # mkdir -p ~/.config/fish/completions
 # carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
-# carapace _carapace | source
+carapace _carapace | source
+
+# Added by LM Studio CLI (lms)
+set -gx PATH $PATH /Users/azlekov/.lmstudio/bin
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.fish 2>/dev/null || :
