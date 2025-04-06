@@ -9,7 +9,9 @@ dart = "latest"
 "pipx:black" = "latest"
 "pipx:poetry" = "latest"
 python = "3.11.10"
+uv = "latest"
 
 [settings]
 experimental = true
 disable_hints = ["false"]
+python.uv_venv_auto = true
