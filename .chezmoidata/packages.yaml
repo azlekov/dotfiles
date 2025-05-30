@@ -12,15 +12,14 @@ packages:
     - findutils
     - fish-shell/fish-beta-4/fish
     - fzf
-    - git
     - gh
+    - git
     - grep
     - jq
     - kdoctor
     - ktlint
     - mas
     - mise
-    - ollama
     - platformio
     - supabase
     - swiftformat
@@ -58,6 +57,7 @@ packages:
     - keka
     - ledger-live
     - obsidian
+    - ollama
     - openmtp
     - orbstack
     - parallels
