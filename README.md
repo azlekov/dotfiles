@@ -6,7 +6,7 @@ With chezmoi, I can install chezmoi and all my dotfiles on a new, empty machine
 with a single command:
 
 ```console
-$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply L3K0V
+$ sh -c "$(curl -fsLS git.io/chezmoi)" -- init --apply azlekov
 ```
 
 Updating my dotfiles on any machine can be done via single command:

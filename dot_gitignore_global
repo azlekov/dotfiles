@@ -26,6 +26,9 @@
 *.sql
 *.sqlite
 
+!migrataions/*.sql
+!seed.sql
+
 # OS generated files #
 ######################
 .DS_Store

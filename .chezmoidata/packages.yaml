@@ -39,6 +39,8 @@ packages:
     - android-commandlinetools
     - android-platform-tools
     - android-studio
+    - betterdisplay
+    - claude-code
     - font-hack-nerd-font
     - font-lato
     - font-meslo-for-powerline
@@ -67,7 +69,7 @@ packages:
     - setapp
     - sf-symbols
     - telegram
-    - temurin
+    - temurin@17
     - transmission
     - visual-studio-code
     - xcodes
