@@ -10,7 +10,7 @@ packages:
     - coreutils
     - docker
     - findutils
-    - fish-shell/fish-beta-4/fish
+    - fish
     - fzf
     - gh
     - git
@@ -41,6 +41,7 @@ packages:
     - android-studio
     - betterdisplay
     - claude-code
+    - conductor
     - font-hack-nerd-font
     - font-lato
     - font-meslo-for-powerline
@@ -57,9 +58,9 @@ packages:
     - imageoptim
     - intellij-idea
     - keka
-    - ledger-live
+    - ledger-wallet
     - obsidian
-    - ollama
+    - ollama-app
     - openmtp
     - orbstack
     - parallels
@@ -69,7 +70,7 @@ packages:
     - setapp
     - sf-symbols
     - telegram
-    - temurin@17
+    - temurin@21
     - transmission
     - visual-studio-code
-    - xcodes
+    - xcodes-app
