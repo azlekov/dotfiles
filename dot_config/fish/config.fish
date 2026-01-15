@@ -96,7 +96,8 @@ if status is-interactive
     abbr --add --global pyserver py -m http.server
 
     # AI
-    abbr --add --global cc claude --plugin-dir $HOME/Workspace/my-claude-code
+    abbr --add --global mycc claude --plugin-dir $HOME/Workspace/my-claude-code
+    abbr --add --global cc claude
 end
 
 if set -q ITERM_SESSION_ID && test -e ~/.iterm2_shell_integration.fish
