@@ -12,4 +12,4 @@
 - Use gh issues to track bugs and feature requests or when start working on a new task
 
 # Supabase
-- Always prefer editing existing migrations instead of creating new ones for existing tables functions or RLS unless it specified to create new migrations.
+- You should always consider editing existing migrations instead of creating new ones for existing tables, functions or RLS unless it specified to create new migration.

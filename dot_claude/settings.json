@@ -1,0 +1,36 @@
+{
+  "model": "opus",
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "ralph-wiggum@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "excludedCommands": ["java", "javac", "gradle", "gradlew", "./gradlew"],
+    "network": {
+      "allowUnixSockets": ["/var/run/docker.sock", "~/.orbstack/run/docker.sock"],
+      "allowLocalBinding": true
+    }
+  },
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(grep:*)",
+      "Bash(xargs sed:*)",
+      "Bash(bun:*)",
+      "Bash(bunx shadcn@latest add:*)",
+      "Bash(bunx tsc:*)",
+      "Bash(cat:*)"
+    ]
+  }
+}
