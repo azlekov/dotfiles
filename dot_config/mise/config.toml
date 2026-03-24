@@ -11,6 +11,8 @@ dart = "latest"
 python = "3.11.10"
 uv = "latest"
 bun = "latest"
+"npm:@vercel/next-browser" = "latest"
+"npm:agent-browser" = "latest"
 
 [settings]
 experimental = true

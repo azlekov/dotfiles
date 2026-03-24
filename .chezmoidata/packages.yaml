@@ -3,6 +3,7 @@ packages:
     - bash
     - bash-completion@2
     - bat
+    - btop
     - carapace
     - chezmoi
     - cloc
@@ -41,6 +42,7 @@ packages:
     - android-studio
     - betterdisplay
     - claude-code
+    - cmux
     - conductor
     - font-hack-nerd-font
     - font-lato

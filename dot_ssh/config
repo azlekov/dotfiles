@@ -1,5 +1,11 @@
+Include ~/.ssh/1Password/config
 Include ~/.orbstack/ssh/config
 
 Host *
 	IdentityAgent "~/.1password/agent.sock"
 	SetEnv TERM=xterm-256color
+
+Host 185.44.118.49
+  	HostName 185.44.118.49
+  	User root
+  	Port 3349
