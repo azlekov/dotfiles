@@ -1,0 +1,43 @@
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+export HOMEBREW_INSTALL_FROM_API=1
+alias brew=/opt/homebrew/bin/brew
+
+# Phase 1: Install Xcode first (required by SwiftLint and other dev tools)
+echo "Installing mas and Xcode (this may take a while)..."
+brew install mas
+mas install 497799835 # Xcode
+echo "Accepting Xcode license..."
+sudo xcodebuild -license accept
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+# Phase 2: Install all packages (SwiftLint now has Xcode available)
+brew bundle --file=/dev/stdin <<EOF
+tap "supabase/tap"
+tap "rsteube/homebrew-tap"
+
+{{ range .packages.brews -}}
+brew {{ . | quote }}
+{{ end -}}
+{{ range .packages.casks -}}
+cask {{ . | quote }}
+{{ end -}}
+
+# Mac App Store apps
+mas '1Password for Safari', id: 1569813296
+mas 'Keynote', id: 361285480
+mas 'Mela', id: 1568924476
+mas 'Numbers', id: 361304891
+mas 'Pages', id: 361309726
+mas 'Pixelmator Pro', id: 6746662575
+mas 'Reeder', id: 6475002485
+mas 'Save to Raindrop.io', id: 1549370672
+mas "Xcode", id: 497799835
+EOF
+
+echo ""
+echo "NOTE: If Parallels failed to install, grant Terminal 'Full Disk Access'"
+echo "in System Settings > Privacy & Security, then re-run: brew install --cask parallels"
+echo ""
+{{ end -}}
