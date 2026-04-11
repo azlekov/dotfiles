@@ -38,7 +38,6 @@ packages:
     - 1password-cli
     - adguard
     - android-commandlinetools
-    - android-platform-tools
     - android-studio
     - betterdisplay
     - claude-code

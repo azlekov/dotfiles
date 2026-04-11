@@ -1,0 +1,27 @@
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+# mise config hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Install mise if not already available (fallback if brew bundle didn't install it)
+if ! command -v mise >/dev/null 2>&1; then
+  echo "mise not found, installing via official installer..."
+  curl https://mise.run | sh
+  export PATH="$HOME/.local/bin:$PATH"
+fi
+
+echo "Installing mise tools..."
+mise install --yes
+
+eval "$(mise activate bash --shims)"
+
+echo "Enabling corepack and pnpm..."
+corepack enable
+
+export PNPM_HOME="$HOME/Library/pnpm"
+mkdir -p "$PNPM_HOME"
+export PATH="$PNPM_HOME:$PATH"
+corepack prepare pnpm@latest --activate
+{{ end -}}

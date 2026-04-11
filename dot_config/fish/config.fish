@@ -11,7 +11,9 @@ if type brew >/dev/null 2>&1
 end
 
 set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
-set -x FLUTTER_ROOT (mise where flutter)
+if type -q mise; and mise where flutter >/dev/null 2>&1
+  set -x FLUTTER_ROOT (mise where flutter)
+end
 
 set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
 

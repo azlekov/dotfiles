@@ -1,0 +1,39 @@
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+export ANDROID_HOME=/opt/homebrew/share/android-commandlinetools
+SDKMANAGER="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+
+if [ ! -x "$SDKMANAGER" ]; then
+  echo "sdkmanager not found, skipping Android SDK setup"
+  exit 0
+fi
+
+# Accept all licenses
+yes | "$SDKMANAGER" --licenses > /dev/null 2>&1 || true
+
+# Auto-detect the latest stable Android platform API level
+ANDROID_API=$("$SDKMANAGER" --list 2>/dev/null | grep "^  platforms;android-" | grep -v "\-ext" | sed 's/.*android-//' | sed 's/ .*//' | sort -n | tail -1)
+
+if [ -z "$ANDROID_API" ]; then
+  echo "Could not detect latest Android API level, defaulting to 35"
+  ANDROID_API=35
+fi
+
+# Auto-detect the latest build-tools version for this API level
+BUILD_TOOLS=$("$SDKMANAGER" --list 2>/dev/null | grep "^  build-tools;${ANDROID_API}" | sed 's/^ *//' | awk '{print $1}' | sort -V | tail -1)
+
+if [ -z "$BUILD_TOOLS" ]; then
+  BUILD_TOOLS="build-tools;${ANDROID_API}.0.0"
+fi
+
+echo "Installing Android SDK components (API $ANDROID_API)..."
+"$SDKMANAGER" \
+  "platform-tools" \
+  "emulator" \
+  "platforms;android-${ANDROID_API}" \
+  "$BUILD_TOOLS" \
+  "sources;android-${ANDROID_API}"
+
+echo "Android SDK setup complete."
+{{ end -}}

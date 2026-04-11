@@ -2,7 +2,7 @@
 node = "lts"
 ruby = "latest"
 deno = "latest"
-flutter = "latest"
+flutter = "3.41.6"
 usage = "latest"
 dart = "latest"
 "pipx:argcomplete" = "latest"
@@ -18,4 +18,5 @@ bun = "latest"
 experimental = true
 disable_hints = ["false"]
 python.uv_venv_auto = true
+python.github_attestations = false
 idiomatic_version_file_enable_tools = []

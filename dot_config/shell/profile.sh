@@ -20,7 +20,9 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
-export FLUTTER_ROOT=$(mise where flutter)
+if command -v mise >/dev/null 2>&1 && mise where flutter >/dev/null 2>&1; then
+  export FLUTTER_ROOT=$(mise where flutter)
+fi
 
 # Configure ANDROID common paths
 export PATH="$ANDROID_HOME/tools:$PATH"

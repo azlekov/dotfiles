@@ -1,0 +1,6 @@
+#!{{ lookPath "sh" }}
+
+{{ if eq .chezmoi.os "darwin" -}}
+echo "Installing Claude Code..."
+curl -fsSL https://claude.ai/install.sh | bash
+{{ end -}}
