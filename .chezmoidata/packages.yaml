@@ -40,7 +40,6 @@ packages:
     - android-commandlinetools
     - android-studio
     - betterdisplay
-    - claude-code
     - cmux
     - conductor
     - font-hack-nerd-font
