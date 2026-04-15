@@ -34,7 +34,7 @@ export PATH="$ANDROID_HOME/emulator:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 
 # Configure PNPM
-export PNPM_HOME="/Users/azlekov/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 export SSH_AUTH_SOCK=~/.1password/agent.sock

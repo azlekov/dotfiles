@@ -26,7 +26,7 @@ set -gx PATH $ANDROID_HOME/emulator $PATH
 # Dart
 set -gx PATH $HOME/.pub-cache/bin $PATH
 
-set -gx PATH $PATH /Users/azlekov/.local/bin
+set -gx PATH $PATH ~/.local/bin
 
 set -gx LANG en_US.UTF-8
 set -gx LC_ALL en_US.UTF-8
@@ -41,7 +41,7 @@ end
 set -gx VISUAL "code"
 
 # Configure PNPM
-set -gx PNPM_HOME "/Users/azlekov/Library/pnpm"
+set -gx PNPM_HOME "~/Library/pnpm"
 set -gx PATH "$PNPM_HOME" $PATH
 
 # Configure Homebrew completions
@@ -126,9 +126,6 @@ set -Ux CARAPACE_BRIDGES 'zsh,fish,bash,argcomplete' # optional
 # mkdir -p ~/.config/fish/completions
 # carapace --list | awk '{print $1}' | xargs -I{} touch ~/.config/fish/completions/{}.fish # disable auto-loaded completions (#185)
 carapace _carapace | source
-
-# Added by LM Studio CLI (lms)
-set -gx PATH $PATH /Users/azlekov/.lmstudio/bin
 
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
