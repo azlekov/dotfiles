@@ -1,0 +1,50 @@
+{
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Bash(grep:*)",
+      "Bash(xargs sed:*)",
+      "Bash(bun:*)",
+      "Bash(bunx shadcn@latest add:*)",
+      "Bash(bunx tsc:*)",
+      "Bash(cat:*)",
+      "Bash(obdisian:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowUnixSockets": [
+        "/var/run/docker.sock",
+        "~/.orbstack/run/docker.sock"
+      ],
+      "allowLocalBinding": true,
+      "allowedDomains": ["github.com", "*.npmjs.org"]
+    },
+    "excludedCommands": [
+      "docker *",
+      "java *",
+      "javac *",
+      "gradle *",
+      "gradlew *",
+      "./gradlew *",
+      "obdisian *",
+      "obsidian-cli *"
+    ]
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "medium"
+}
