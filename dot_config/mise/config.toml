@@ -16,6 +16,7 @@ bun = "latest"
 pnpm = "latest"
 "npm:@vercel/next-browser" = "latest"
 "npm:agent-browser" = "latest"
+fnox = "latest"
 
 [settings]
 experimental = true

@@ -109,3 +109,6 @@
 
 [init]
 	defaultBranch = main
+
+[includeIf "gitdir:~/Workspace/wiser/"]
+	path = ~/Workspace/wiser/.gitconfig
