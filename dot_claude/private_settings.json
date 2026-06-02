@@ -1,13 +1,4 @@
 {
-  "model": "opus",
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
   "attribution": {
     "commit": "",
     "pr": ""
@@ -25,6 +16,7 @@
     ],
     "defaultMode": "auto"
   },
+  "model": "opus",
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
@@ -38,7 +30,9 @@
     "claude-md-management@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "kotlin-lsp@claude-plugins-official": true
+    "kotlin-lsp@claude-plugins-official": true,
+    "shopify-ai-toolkit@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true
   },
   "sandbox": {
     "enabled": true,
@@ -46,7 +40,9 @@
     "network": {
       "allowedDomains": [
         "github.com",
-        "*.npmjs.org"
+        "*.npmjs.org",
+        "fonts.googleapis.com",
+        "fonts.gstatic.com"
       ],
       "allowUnixSockets": [
         "/var/run/docker.sock",
@@ -56,16 +52,21 @@
     },
     "excludedCommands": [
       "docker *",
+      "gh *",
+      "git push*",
+      "git pull*",
+      "git fetch*",
+      "git clone*",
       "java *",
       "javac *",
       "gradle *",
       "gradlew *",
       "./gradlew *",
-      "obdisian *",
       "obsidian-cli *"
     ]
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "medium",
+  "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }

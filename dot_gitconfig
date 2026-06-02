@@ -60,7 +60,7 @@
 	branch = auto
 	diff = auto
 	status = auto
-    showbranch = auto
+    	showbranch = auto
 	ui = true
 
 [color "branch"]
@@ -96,7 +96,7 @@
 [filter "media"]
 	clean = git media clean %f
 	smudge = git media smudge %f
-    required = true
+    	required = true
 
 [pull]
 	rebase = true
@@ -112,3 +112,7 @@
 
 [includeIf "gitdir:~/Workspace/wiser/"]
 	path = ~/Workspace/wiser/.gitconfig
+[credential "https://github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/opt/homebrew/bin/gh auth git-credential
