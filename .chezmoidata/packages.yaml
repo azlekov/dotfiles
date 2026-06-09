@@ -38,7 +38,6 @@ packages:
     - android-studio
     - betterdisplay
     - cmux
-    - conductor
     - font-hack-nerd-font
     - font-lato
     - font-meslo-for-powerline
