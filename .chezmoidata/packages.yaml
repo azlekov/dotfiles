@@ -1,4 +1,10 @@
 packages:
+  taps:
+    - supabase/tap
+    - rsteube/tap
+    - stripe/stripe-cli
+    - infisical/get-cli
+    - pamburus/tap
   brews:
     - bash
     - bash-completion@2
@@ -15,11 +21,14 @@ packages:
     - gh
     - git
     - grep
+    - hl
+    - infisical
     - jq
     - kdoctor
     - ktlint
     - mas
     - mise
+    - stripe
     - supabase
     - swiftformat
     - swiftlint
