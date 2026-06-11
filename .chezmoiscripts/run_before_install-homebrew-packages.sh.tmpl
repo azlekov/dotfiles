@@ -32,15 +32,9 @@ cask {{ . | quote }}
 {{ end -}}
 
 # Mac App Store apps
-mas '1Password for Safari', id: 1569813296
-mas 'Keynote', id: 361285480
-mas 'Mela', id: 1568924476
-mas 'Numbers', id: 361304891
-mas 'Pages', id: 361309726
-mas 'Pixelmator Pro', id: 6746662575
-mas 'Reeder', id: 6475002485
-mas 'Save to Raindrop.io', id: 1549370672
-mas "Xcode", id: 497799835
+{{ range .packages.mas -}}
+mas {{ .name | quote }}, id: {{ .id }}
+{{ end -}}
 EOF
 
 echo ""

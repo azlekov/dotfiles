@@ -2,8 +2,10 @@
 [".config/shell/lscolors.sh"]
     type = "file"
     url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/lscolors.sh"
+    refreshPeriod = "168h"
 
 ### LSColors for Fish
 [".config/shell/lscolors.csh"]
     type = "file"
     url = "https://raw.githubusercontent.com/trapd00r/LS_COLORS/master/lscolors.csh"
+    refreshPeriod = "168h"

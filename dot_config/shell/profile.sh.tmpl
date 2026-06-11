@@ -19,25 +19,24 @@ fi
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-export ANDROID_HOME="/opt/homebrew/share/android-commandlinetools"
+export ANDROID_HOME="{{ .env.android_home }}"
 if command -v mise >/dev/null 2>&1 && mise where flutter >/dev/null 2>&1; then
   export FLUTTER_ROOT=$(mise where flutter)
 fi
 
 # Configure ANDROID common paths
-export PATH="$ANDROID_HOME/tools:$PATH"
-export PATH="$ANDROID_HOME/tools/bin:$PATH"
-export PATH="$ANDROID_HOME/platform-tools:$PATH"
-export PATH="$ANDROID_HOME/emulator:$PATH"
+{{ range .env.android_path_subdirs -}}
+export PATH="$ANDROID_HOME/{{ . }}:$PATH"
+{{ end -}}
 
 # Dart
 export PATH="$HOME/.pub-cache/bin:$PATH"
 
 # Configure PNPM
-export PNPM_HOME="$HOME/Library/pnpm"
+export PNPM_HOME="$HOME/{{ .env.pnpm_home_rel }}"
 export PATH="$PNPM_HOME:$PATH"
 
-export SSH_AUTH_SOCK=~/.1password/agent.sock
+export SSH_AUTH_SOCK={{ .env.ssh_auth_sock }}
 
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
+export LANG={{ .env.lang }}
+export LC_ALL={{ .env.lang }}

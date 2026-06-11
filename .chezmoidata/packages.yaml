@@ -79,3 +79,14 @@ packages:
     - transmission
     - visual-studio-code
     - xcodes-app
+  # Mac App Store apps (installed via `mas` in the brew bundle).
+  mas:
+    - { id: 1569813296, name: "1Password for Safari" }
+    - { id: 361285480, name: "Keynote" }
+    - { id: 1568924476, name: "Mela" }
+    - { id: 361304891, name: "Numbers" }
+    - { id: 361309726, name: "Pages" }
+    - { id: 6746662575, name: "Pixelmator Pro" }
+    - { id: 6475002485, name: "Reeder" }
+    - { id: 1549370672, name: "Save to Raindrop.io" }
+    - { id: 497799835, name: "Xcode" }

@@ -10,26 +10,25 @@ if type brew >/dev/null 2>&1
     set -x PATH (brew --prefix)/opt/coreutils/libexec/gnubin $PATH
 end
 
-set -gx ANDROID_HOME /opt/homebrew/share/android-commandlinetools
+set -gx ANDROID_HOME {{ .env.android_home }}
 if type -q mise; and mise where flutter >/dev/null 2>&1
   set -x FLUTTER_ROOT (mise where flutter)
 end
 
-set -gx SSH_AUTH_SOCK ~/.1password/agent.sock
+set -gx SSH_AUTH_SOCK {{ .env.ssh_auth_sock }}
 
 # Set Android common paths
-set -gx PATH $ANDROID_HOME/tools $PATH
-set -gx PATH $ANDROID_HOME/tools/bin $PATH
-set -gx PATH $ANDROID_HOME/platform-tools $PATH
-set -gx PATH $ANDROID_HOME/emulator $PATH
+{{ range .env.android_path_subdirs -}}
+set -gx PATH $ANDROID_HOME/{{ . }} $PATH
+{{ end -}}
 
 # Dart
 set -gx PATH $HOME/.pub-cache/bin $PATH
 
 set -gx PATH $PATH ~/.local/bin
 
-set -gx LANG en_US.UTF-8
-set -gx LC_ALL en_US.UTF-8
+set -gx LANG {{ .env.lang }}
+set -gx LC_ALL {{ .env.lang }}
 
 # Preferred editor for local and remote sessions
 if test -n "$SSH_CONNECTION"
@@ -41,7 +40,7 @@ end
 set -gx VISUAL "code"
 
 # Configure PNPM
-set -gx PNPM_HOME "~/Library/pnpm"
+set -gx PNPM_HOME "$HOME/{{ .env.pnpm_home_rel }}"
 set -gx PATH "$PNPM_HOME" $PATH
 
 # Configure Homebrew completions
