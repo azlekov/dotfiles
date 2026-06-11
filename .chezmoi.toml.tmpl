@@ -1,17 +1,11 @@
-{{ $device_type := "desktop" }}
-{{ if eq .chezmoi.os "darwin" }}
-{{   if contains "MacBook" (output "sysctl" "-n" "hw.model") }}
-{{     $device_type = "laptop" }}
-{{   else }}
-{{     $device_type = "desktop" }}
-{{   end }}
-{{ else if eq .chezmoi.os "linux" }}
-{{   $device_type = (output "hostnamectl" "--json=short" | mustFromJson).Chassis }}
-{{ else if eq .chezmoi.os "windows" }}
-{{   $device_type = (output "powershell.exe" "-NoProfile" "-NonInteractive" "-Command" "if ((Get-CimInstance -Class Win32_Battery | Measure-Object).Count -gt 0) { Write-Output 'laptop' } else { Write-Output 'desktop' }") | trim }}
-{{ end }}
+{{/* macOS-only setup: laptop vs desktop from the hardware model. */}}
+{{- $device_type := "desktop" -}}
+{{- if contains "MacBook" (output "sysctl" "-n" "hw.model") -}}
+{{-   $device_type = "laptop" -}}
+{{- end -}}
 
-{{ $email := promptString "email" -}}
+{{/* promptStringOnce keeps the stored value as the default on re-init. */}}
+{{- $email := promptStringOnce . "email" "Email address" -}}
 
 [data]
   email = {{ $email | quote }}
