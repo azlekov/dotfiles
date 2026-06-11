@@ -5,5 +5,12 @@ alias brew=/opt/homebrew/bin/brew
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew tap supabase/tap
-brew tap rsteube/homebrew-tap
+# Trust then tap third-party repositories. Homebrew 6.0+ ignores formulae and
+# casks from untrusted taps, so whitelist each tap with `brew trust` first
+# (guarded for older Homebrew releases that lack the command).
+{{ range .packages.taps -}}
+if brew trust --help >/dev/null 2>&1; then
+  brew trust --tap {{ . | quote }}
+fi
+brew tap {{ . | quote }}
+{{ end -}}

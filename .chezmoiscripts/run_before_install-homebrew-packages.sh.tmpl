@@ -12,11 +12,18 @@ echo "Accepting Xcode license..."
 sudo xcodebuild -license accept
 sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
+# Trust third-party taps so Homebrew 6.0+ will load their formulae/casks
+# (no-op on older Homebrew releases without the `brew trust` command).
+{{ range .packages.taps -}}
+if brew trust --help >/dev/null 2>&1; then
+  brew trust --tap {{ . | quote }}
+fi
+{{ end }}
 # Phase 2: Install all packages (SwiftLint now has Xcode available)
 brew bundle --file=/dev/stdin <<EOF
-tap "supabase/tap"
-tap "rsteube/homebrew-tap"
-
+{{ range .packages.taps -}}
+tap {{ . | quote }}
+{{ end }}
 {{ range .packages.brews -}}
 brew {{ . | quote }}
 {{ end -}}
