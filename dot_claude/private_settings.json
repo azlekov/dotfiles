@@ -23,7 +23,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -34,7 +34,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -45,7 +45,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -55,7 +55,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -65,7 +65,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -75,7 +75,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -85,7 +85,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
@@ -95,7 +95,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/azlekov/.local/bin/dira hook claude"
+            "command": "$HOME/.local/bin/dira hook claude"
           }
         ]
       }
