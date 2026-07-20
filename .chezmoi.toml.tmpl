@@ -10,3 +10,15 @@
 [data]
   email = {{ $email | quote }}
   device_type = {{ $device_type | quote }}
+
+{{/* VS Code as the three-way merge tool. It needs a real base file, which
+     chezmoi does not supply, so copy .Target to a .base sidecar first. The
+     merged result is written back to .Source. The inner {{ }} are emitted
+     verbatim via a raw string so they are evaluated by `chezmoi merge`,
+     not when this config template is rendered. */}}
+[merge]
+  command = "bash"
+  args = [
+    "-c",
+    {{ `"cp {{ .Target | quote }} {{ printf \"%s.base\" .Target | quote }} && code --new-window --wait --merge {{ .Destination | quote }} {{ .Target | quote }} {{ printf \"%s.base\" .Target | quote }} {{ .Source | quote }}"` }},
+  ]
