@@ -135,6 +135,12 @@
         "source": "github",
         "repo": "vercel/vercel-plugin"
       }
+    },
+    "dirahq": {
+      "source": {
+        "source": "github",
+        "repo": "dodi-smart/dirahq-zavet"
+      }
     }
   },
   "sandbox": {

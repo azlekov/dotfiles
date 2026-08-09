@@ -20,6 +20,8 @@ bun = "latest"
 "npm:agent-browser" = "latest"
 "npm:@vercel/next-browser" = "latest"
 "npm:@shopify/cli" = "latest"
+"npm:@native-sdk/cli" = "latest"
+"npm:vercel" = "latest"
 
 [settings]
 experimental = true
