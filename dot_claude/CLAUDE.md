@@ -2,6 +2,7 @@
 - Use Next.js 16+ for new web projects. Use `proxy.ts`, not `middleware.ts`.
 - Use React 19+.
 - Use Tailwind CSS v4.
+- Use latest shadcn/ui on Base UI (not Radix) for components.
 
 # Search & Documentation
 - Treat the current year as 2026 when searching for up-to-date documentation, releases, or data.
@@ -15,6 +16,12 @@
 - Open pull requests with the `gh` CLI.
 - Track bugs, feature requests, and new tasks with `gh` issues.
 
+# Deployment
+- On fresh or updated deployments, record env vars in 1Password Environments via the 1Password MCP before setting them on the host.
+- Track everything unrecoverable or user-impacting on rotation: salts, JWT/session secrets, DB credentials, webhook signing secrets, cron secrets, self-minted API keys.
+- Provider-issued secrets re-readable from their dashboard (Supabase, Neon, Upstash, etc.) need no record — unless the provider shows them only once.
+- Reason: Vercel marks env vars sensitive and never reveals them again; without a 1Password record the deployment cannot be reconstructed.
+
 # Sandbox & Remotes
 - Default to running commands INSIDE the sandbox.
 - Escape the sandbox only when a command genuinely needs network or auth — `gh` CLI, `bunx` (package downloads), and network git actions (`fetch`, `push`, `pull`, `clone`) — or when a command fails with clear evidence of a sandbox restriction (e.g. "Operation not permitted", denied path/socket, blocked host).
@@ -26,6 +33,6 @@
 - Do not use `claude/`-prefixed branch names.
 
 # Supabase
-- Prefer editing existing migrations over creating new ones for existing tables, functions, or RLS — unless explicitly told to create a new migration.
-- On a PR or `develop` branch, edit the existing migration ONLY if it has not yet been deployed to `main`. If it is already on `main`, create a new migration instead.
+- Edit migrations introduced in the current branch/PR freely, as long as they are not yet merged to development, staging, or production. Once merged, add a new migration instead.
+- A feature ships a complete, consolidated set of migrations — final table/function/RLS definitions, not a chain of `ALTER TABLE` patches accumulated across sessions. Collapse in-branch migrations before the PR merges.
 - When debugging a Supabase-based project, consider using Docker to inspect the running Postgres data directly.
