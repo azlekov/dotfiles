@@ -1,6 +1,7 @@
 {
   "permissions": {
     "allow": [
+      "Artifact",
       "WebSearch",
       "Bash(grep:*)",
       "Bash(xargs sed:*)",
@@ -8,7 +9,8 @@
       "Bash(bunx shadcn@latest add:*)",
       "Bash(bunx tsc:*)",
       "Bash(cat:*)",
-      "Bash(obdisian:*)"
+      "Bash(obdisian:*)",
+      "mcp__visualize"
     ],
     "defaultMode": "auto"
   },
@@ -145,6 +147,7 @@
     "network": {
       "allowedDomains": [
         "github.com",
+        "*.github.com",
         "*.npmjs.org",
         "fonts.googleapis.com",
         "fonts.gstatic.com"
