@@ -1,0 +1,7 @@
+{{/* age identity for fnox. Read from 1Password at apply time so the secret
+     never lands in this repo. Item: "fnox age - Asen's Personal Key"
+     (Private vault); the UUID is used so a rename does not break apply. */}}
+{{- $item := "op://Private/l6xpoe72lcq3f2ae6f65yeosiu/Section_ay5gxarkfbrvb64oqwxiswpjbi" -}}
+# created: 2026-08-30T16:54:02+03:00
+# public key: {{ onepasswordRead (printf "%s/public key" $item) }}
+{{ onepasswordRead (printf "%s/private key" $item) }}

@@ -57,4 +57,7 @@ This repo is macOS-only. chezmoi's source-state naming maps onto the home direct
 `run_once_*` scripts are deduplicated by content hash, so renaming them does not re-trigger a run.
 
 **Secrets:** SSH auth is delegated to the 1Password agent (`~/.1password/agent.sock` via
-`dot_ssh/config`); no private keys live in this repo.
+`dot_ssh/config`); no private keys live in this repo. The fnox age identity
+(`~/.config/fnox/age.txt`) is rendered at apply time from the 1Password item
+*fnox age - Asen's Personal Key* (Private vault) via `onepasswordRead`, so `op` must be
+signed in before `chezmoi apply`.
