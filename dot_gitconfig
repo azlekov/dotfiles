@@ -113,6 +113,14 @@
 [includeIf "gitdir:~/Workspace/wiser/"]
 	path = ~/Workspace/wiser/.gitconfig
 [credential "https://github.com"]
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [credential "https://gist.github.com"]
+	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://origin.cursor.com/git"]
+	helper = 
+	helper = !~/.local/bin/origin credential-helper
+[credential "https://origin.cursor.com"]
+	helper = 
+	helper = !~/.local/bin/origin credential-helper

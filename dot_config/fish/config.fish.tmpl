@@ -129,3 +129,11 @@ carapace _carapace | source
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init.fish 2>/dev/null || :
+
+# >>> grok installer >>>
+fish_add_path $HOME/.grok/bin
+# <<< grok installer <<<
+
+# fnox — age identity. The keyfile itself is rendered by chezmoi from 1Password
+# (see dot_config/private_fnox/private_age.txt.tmpl), so only the pointer lives here.
+set -gx FNOX_AGE_KEY_FILE ~/.config/fnox/age.txt

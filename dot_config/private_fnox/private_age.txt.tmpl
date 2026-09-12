@@ -1,6 +1,6 @@
 {{/* age identity for fnox. Read from 1Password at apply time so the secret
      never lands in this repo. */}}
-{{- $item := "op://Private/fnox age - personal" -}}
+{{- $item := "op://DODI SMART/fnox-age-personal-dev" -}}
 # created: 2026-08-30T16:54:02+03:00
-# public key: {{ onepasswordRead (printf "%s/public key" $item) }}
-{{ onepasswordRead (printf "%s/private key" $item) }}
+# public key: {{ onepasswordRead (printf "%s/public-key" $item) }}
+{{ onepasswordRead (printf "%s/private-key" $item) }}

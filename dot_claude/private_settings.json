@@ -14,7 +14,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "hooks": {
     "Notification": [
       {
@@ -119,7 +119,8 @@
     "typescript-lsp@claude-plugins-official": true,
     "vercel@claude-plugins-official": true,
     "vercel-plugin@vercel": true,
-    "zavet@dirahq": true
+    "zavet@dirahq": true,
+    "dev-standards@dodi-smart": true
   },
   "extraKnownMarketplaces": {
     "claude-plugins-official": {
@@ -138,6 +139,18 @@
       "source": {
         "source": "github",
         "repo": "dodi-smart/dirahq-zavet"
+      }
+    },
+    "dodi-smart": {
+      "source": {
+        "source": "github",
+        "repo": "dodi-smart/dev-standards"
+      }
+    },
+    "anthropic-agent-skills": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/skills"
       }
     }
   },
@@ -177,6 +190,7 @@
   "effortLevel": "medium",
   "tui": "fullscreen",
   "skipWorkflowUsageWarning": true,
+  "autoCompactEnabled": true,
   "agentPushNotifEnabled": true,
   "skipAutoPermissionPrompt": true
 }
